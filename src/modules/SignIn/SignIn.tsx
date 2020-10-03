@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import { withRouter, RouteComponentProps } from "react-router";
-
+import axios from 'axios';
+import GoogleLogin from 'react-google-login';
+// import FacebookLogin from 'react-facebook-login';
 import './SignIn.scss';
+import { CLIENT_ID } from '../../google-credentials';
 
 interface IProps extends RouteComponentProps {
   history: any;
@@ -18,13 +21,26 @@ class SignIn extends React.Component<IProps> {
 
   constructor(props: IProps) {
     super(props);
+    this.state = {
+    };
   }
 
   signin = () => {
     this.props.history.push('/map')
   }
 
+  signupWithGoogle = (response: any) => {
+    console.log(response);
+  }
+
   render() {
+    const googleResponse = (response: any) => {
+      console.log(response);
+      var res = response.profileObj;
+      console.log(res);
+      this.signupWithGoogle(response);
+    }
+
     return (
       <div className="sign-in-page h-100">
         <div className="background d-flex flex-grow-1 h-100">
@@ -68,6 +84,13 @@ class SignIn extends React.Component<IProps> {
                 <i className="fa fa-sign-in"></i>&nbsp;&nbsp;Entrar
              </button>
             </div>
+              <div className="d-flex justify-content-center" style={{ 'paddingTop': "10px" }}>
+                <GoogleLogin
+                  clientId={CLIENT_ID}
+                  buttonText="Login com Google"
+                  onSuccess={googleResponse}
+                  onFailure={googleResponse} ></GoogleLogin>
+              </div>
           </div>
         </div>
       </div>
