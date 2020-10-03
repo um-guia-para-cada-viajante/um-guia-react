@@ -1,0 +1,95 @@
+$danger-color: #ff4444;
+$danger-color-dark: #cc0000;
+
+$warning-color: #ffbb33;
+$warning-color-dark: #ff8800;
+
+$success-color: #00c851;
+$success-color-dark: #007e33;
+
+$info-color: #33b5e5;
+$info-color-dark: #0099cc;
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #000;
+  border-radius: 4px;
+  outline: none;
+  transition: all 0.25s;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+
+  &.btn-danger {
+    border-color: $danger-color-dark;
+    background-color: $danger-color;
+    color: #fff;
+
+    &:hover {
+      background-color: $danger-color-dark;
+    }
+  }
+
+  &.btn-warning {
+    background-color: $warning-color;
+    color: #fff;
+    &:hover {
+      background-color: $warning-color-dark;
+    }
+  }
+
+  &.btn-success {
+    background-color: $success-color;
+    color: #fff;
+    &:hover {
+      background-color: $success-color-dark;
+    }
+  }
+
+  &.btn-info {
+    background-color: $info-color;
+    color: #fff;
+    &:hover {
+      background-color: $info-color-dark;
+    }
+  }
+  //
+}
+
+.btn {
+  &::after {
+    display: none;
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+
+    /* Center the ripple */
+    top: 50%;
+    left: 50%;
+
+    animation: ripple 1s;
+    opacity: 0;
+  }
+  &:focus:not(:active)::after {
+    display: block;
+  }
+}
+
+@keyframes ripple {
+  from {
+    opacity: 1;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(10);
+  }
+}
