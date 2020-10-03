@@ -1,35 +1,63 @@
-.sign-in-page {
+.map-container-btn {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-
-  .background {
-    background-image: url(https://www.queroviajarmais.com/wp-content/uploads/2014/05/o-que-fazer-em-blumenau.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  .card {
-    min-width: 25%;
-    padding: 1.5rem;
-
-    border: 1px solid #ccc;
-    border-radius: 4px;
-
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
-  }
-
-  input.form-control {
-    min-width: 220px;
-  }
-
-  @media (max-width: 767px) {
-    .card {
-      width: 100%;
-    }
-  }
+  flex-wrap: wrap;
+  justify-items: center;
+  justify-content: center;
 }
 
-// .signin-content {
-  // .signin-bg {
-  // .signin-form {
+.map-list-button {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 90%;
+  height: 2.5rem;
+  background-color: #4272d7;
+  position: absolute;
+  bottom: 1rem;
+
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.container-btn {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  justify-content: center;
+}
+
+
+
+.action-container {
+  position: fixed;
+  bottom: 0;
+  padding: 1.5rem 1.75rem;
+  width: 100%;
+  height: 12%;
+  background-color: #fafafa;
+  border-radius: 18px 18px 0px 0px;
+  box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.25);
+}
