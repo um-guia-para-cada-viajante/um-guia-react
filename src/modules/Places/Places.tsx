@@ -9,7 +9,7 @@ class Places extends React.Component {
   render() {
     const places = [
       {
-          "name": "Museu da Cervejaaaaaaaaaa aaaaaaaaaaa", 
+          "name": "Museu da Cerveja", 
           "image": "https://picsum.photos/200",
           "rating": "5",
           "description": "Croissant fruitcake jujubes cupcake chocolate danish. Powder sesame snaps cotton candy biscuit pudding pastry."
@@ -46,24 +46,27 @@ class Places extends React.Component {
       }
     ];
     return (
-      <div className="container-fluid" style={{ overflowY: 'scroll', height: 'calc(100vh - 127px)' }}>
-        <h2 className="text-center p-2">Monte seu roteiro</h2>  
+      <div className="container-fluid places">
+        <h2 className="text-center p-2">Monte seu roteiro</h2>
+        <hr className="division"/>  
         {places.map(p => 
           <>
             <div className="container-fluid">
                 <div className="row">
-                  <img className="place-img rounded" alt={`Imagem do local ${p.name}`} src={p.image}/>                        
-                  <div className="col-md">
+                  <div className="col-5">
+                    <img className="place-img rounded" alt={`Imagem do local ${p.name}`} src={p.image}/>                        
+                  </div>
+                  <div className="col-7">
                     <h4 className="row">{p.name}</h4>
-                    <img className="row w-25" alt="Avaliação" src={process.env.PUBLIC_URL + `/images/rating/${p.rating}.png`}/>
+                    <img className="row rating" alt="Avaliação" src={process.env.PUBLIC_URL + `/images/rating/${p.rating}.png`}/>
                   </div>
                 </div>
-                <div className="row p-1 mt-2">
+                <div className="row pl-3 pr-3 mt-2">
                   <p>{p.description}</p>
                 </div>
                 <div className="row justify-content-around">
                   <button className="btn btn-primary">Selecionar</button>
-                  <button className="btn btn-outline-secondary center">Saiba mais</button>
+                  <button className="btn btn-outline-secondary">Saiba mais</button>
                 </div>
             </div>
             <hr/>
