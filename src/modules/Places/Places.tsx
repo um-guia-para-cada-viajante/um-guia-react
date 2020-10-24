@@ -1,58 +1,77 @@
 import React from 'react';
-
 import './Places.scss';
 
 class Places extends React.Component {
   public signin() {
-
+    
   }
 
   render() {
+    const places = [
+      {
+          "name": "Museu da Cerveja", 
+          "image": "https://picsum.photos/200",
+          "rating": "5",
+          "description": "Croissant fruitcake jujubes cupcake chocolate danish. Powder sesame snaps cotton candy biscuit pudding pastry."
+      },
+      {
+          "name": "Sorvete Schmitt", 
+          "image": "https://picsum.photos/200",
+          "rating": "5",
+          "description": "Ice cream marzipan tootsie roll cheesecake. Brownie wafer liquorice sweet roll tiramisu tart chupa chups bonbon."
+      },
+      {
+          "name": "Museu da Água", 
+          "image": "https://picsum.photos/200",
+          "rating": "4",
+          "description": "Cake donut jelly-o cotton candy tart fruitcake. Sweet marzipan marshmallow donut lollipop cake sugar plum. "
+      },
+      {
+          "name": "Museu Hering", 
+          "image": "https://picsum.photos/200",
+          "rating": "4",
+          "description": "Jelly-o cheesecake pastry dragée sesame snaps liquorice. Halvah macaroon marzipan."
+      },
+      {
+          "name": "Galinha Kazulke", 
+          "image": "https://picsum.photos/200",
+          "rating": "3",
+          "description": "Chocolate caramels ice cream jelly."
+      },
+      {
+          "name": "Prainha", 
+          "image": "https://picsum.photos/200",
+          "rating": "3",
+          "description": "Fruitcake tootsie roll dragée chocolate cake jelly beans pastry."
+      }
+    ];
     return (
-      <div className="sign-in-page h-100">
-        <div className="background d-flex flex-grow-1 h-100">
-        </div>
-        <div className="card h-100 d-flex align-items-center justify-content-center">
-          <div className="container-fluid">
-            <div className="py-3 mb-4 text-center">
-              <h4>Bem Vindo!</h4>
-            </div>
-            <div className="form-group">
-              <div className="input-group">
-                <div className="input-group-prepend">
-                  <div className="btn border">
-                    <i className="fa fa-user"></i>
+      <div className="container-fluid places">
+        <h2 className="text-center p-2">Monte seu roteiro</h2>
+        <hr className="division"/>  
+        {places.map(p => 
+          <>
+            <div className="container-fluid">
+                <div className="row">
+                  <div className="col-5">
+                    <img className="place-img rounded" alt={`Imagem do local ${p.name}`} src={p.image}/>                        
+                  </div>
+                  <div className="col-7">
+                    <h4 className="row">{p.name}</h4>
+                    <img className="row rating" alt="Avaliação" src={process.env.PUBLIC_URL + `/images/rating/${p.rating}.png`}/>
                   </div>
                 </div>
-                <input className="form-control" placeholder="E-mail" type="text" />
-              </div>
-            </div>
-            <div className="form-group mb-0">
-              <div className="input-group">
-                <div className="input-group-prepend">
-                  <div className="btn border">
-                    <i className="fa fa-lock"></i>
-                  </div>
+                <div className="row pl-3 pr-3 mt-2">
+                  <p>{p.description}</p>
                 </div>
-                <input className="form-control" placeholder="Senha" type="password" />
-              </div>
+                <div className="row justify-content-around">
+                  <button className="btn btn-primary">Selecionar</button>
+                  <button className="btn btn-outline-secondary">Saiba mais</button>
+                </div>
             </div>
-            <div className="d-flex justify-content-between">
-              <span></span>
-              <a className="px-2 py-1">
-                <small className="text-muted">Esqueceu sua Senha?</small>
-              </a>
-            </div>
-            <div className="d-flex justify-content-between pt-4">
-              <button className="btn btn-link w-100 mx-2">
-                Criar Conta
-              </button>
-              <button className="btn btn-primary w-100 mx-2">
-                <i className="fa fa-sign-in"></i>&nbsp;&nbsp;Entrar
-             </button>
-            </div>
-          </div>
-        </div>
+            <hr/>
+          </>)
+        }
       </div>
     )
   }
